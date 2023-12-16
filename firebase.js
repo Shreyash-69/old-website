@@ -37,6 +37,19 @@ window.onload = function() {
   });
 }
 
+// Function to open the popup
+function openPopup() {
+  document.getElementById('popup-container').style.display = 'block';
+}
+
+// Function to close the popup
+function closePopup() {
+  document.getElementById('popup-container').style.display = 'none';
+}
+
+// Event listener for the button to open the popup
+document.getElementById('open-popup-btn').addEventListener('click', openPopup);
+
 
  // Define an array of sensitive words to hide
  var sensitiveWords = ["shreyash", "bhosale", "prathmesh", "mayur","Ashwin","Kumar","Soham","ayush","shyam","DEEPAK","CHAURASIYA","KAUSHIK","MOURYA","EKLAKH","ANSARI","KEDAR","PRATHAMEESH","PRATHAMESH","RITESH","SHARMA"];
@@ -278,7 +291,7 @@ if (yourName === "") {
 }
 var name = document.getElementById("yourName").value;
 var nameArray = name.split(" ");
-if (nameArray.length < 2) {
+if (nameArray.length < 1) {
   alert("Please enter both first name and last name");
   return;
 }
@@ -286,16 +299,23 @@ if (!/^[a-zA-Z ]+$/.test(yourName)) {
   alert("Name can only contain letters.");
   return;
 }
-// if (yourName === "Fuck","fuck","fuck you","Madarchod","madarchod","Bsdk","Fuck you") {
-//   alert("Don't be an ash0le");
+var forbiddenWords = ["fuck", "madarchod", "bsdk","developer"]; // Add more words as needed
+// var yourName = "someName"; // Replace this with the actual value you want to check
+
+// Convert the input and the forbidden words to lowercase for case-insensitive comparison
+var lowerYourName = yourName.toLowerCase();
+
+if (forbiddenWords.some(word => lowerYourName.includes(word))) {
+    alert("Don't be an Assh0le");
+    return;
+}
+
+// var programname = document.getElementById("programName").value;
+// var programnameArray = programname.split(" ");
+// if (programnameArray.length < 2) {
+//   alert("Enter a title with more than one word");
 //   return;
 // }
-var programname = document.getElementById("programName").value;
-var programnameArray = programname.split(" ");
-if (programnameArray.length < 2) {
-  alert("Enter a title with more than one word");
-  return;
-}
 if (programName === ""){
   alert("Program name cannot be blank");
   return;
@@ -363,8 +383,8 @@ var codeSpace = document.querySelector('.code-space');
   // Clear the form
   form.reset();
 
- 
- 
+  closePopup();
+
   window.scrollTo({
     top: 0,
     left: 0,

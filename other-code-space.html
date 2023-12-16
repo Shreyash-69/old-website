@@ -186,9 +186,9 @@
 
 <!-- main body content here -->
 <div class="code-space">
-<div class="intro-container">
-  <h1>Welcome to Code Space</h1>
-  <div 
+<!-- <div class="intro-container"> -->
+  <!-- <h1>Welcome to Code Space</h1> -->
+  <!-- <div 
    class="button-code">
     <p>This is a platform where you can share your code with the community and also view code written by others. To share your code, please follow the instructions below:</p>
 <ol class="code-space-rules">
@@ -201,8 +201,49 @@
 <p>Click "Post Code" button to create your new post!</p>
 </div>
 <a href="#program-form" title="Create new post"><div class="main-btn-program"><i class="fa fa-code" aria-hidden="true"> </i>Post Code</div></a> 
-</div>
+</div> -->
 <br>
+</div>
+<!-- <div class="form-box"> -->
+  <button id="open-popup-btn" class="feedback-comment">New post</button>
+
+  <!-- The popup form container -->
+  <div id="popup-container" class="popup-container">
+      <!-- The actual form -->
+      <div class="popup-content">
+          <span class="close-btn" onclick="closePopup()">&times;</span>
+      
+          <form id="program-form">
+              <div class="program-details">
+                  <input type="text" id="yourName" name="yourName" placeholder="Your or subject name eg.'AkA DS'">
+                  <br>
+                  <input type="text" id="programName" name="programName" placeholder="Program Title">
+                  <label for="programLanguage">Programming Language:
+                      <select id="programLanguage" name="programLanguage">
+                          <option>Select</option>
+                          <option value="python">Python</option>
+                          <option value="c">C</option>
+                          <option value="c++">C++</option>
+                          <option value="java">Java</option>
+                          <option value="c#">C#</option>
+                          <option value="r">R</option>
+                          <option value="javascript">Javascript</option>
+                          <option value="sql">SQL</option>
+                          <option value="html">HTML</option>
+                          <option value="css">CSS</option>
+                          <option value="swift">Swift</option>
+                          <option value="ruby">Ruby</option>
+                          <option value="go">Go</option>
+                          <option value="other">Other</option>
+                      </select>
+                  </label>
+              </div>
+              <pre><textarea id="programCODE" placeholder="Enter your program code here"></textarea></pre>
+              <button type="submit" onclick="addCode()">Post <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+          </form>
+      </div>
+  </div>
+  <!-- </div> -->
 <div class="search-container">
   <!-- <script async src="https://cse.google.com/cse.js?cx=a40065c34256d4b6e">
   </script>
@@ -225,35 +266,7 @@
 </div>
 <div id="success-message" style="display:none;">Code submitted successfully!</div>
 <!-- <div class="form-box"> -->
-<form id="program-form">
-  <div class="program-details">
-    <input type="text" id="yourName" name="yourName" placeholder="Your or subject name eg.'AkA DS'">
-    <br>
-    <input type="text" id="programName" name="programName" placeholder="Program Title">
-    <label for="programLanguage">Programming Language:
-    <select id="programLanguage" name="programLanguage">
-      <option >Select</option>
-      <option value="python">Python</option>
-      <option value="c">C</option>
-      <option value="c++">C++</option>
-      <option value="java">Java</option>
-      <option value="c#">C#</option>
-      <option value="r">R</option>
-      <option value="javascript">Javascript</option>
-      <option value="sql">SQL</option>
-      <option value="html">HTML</option>
-      <option value="css">CSS</option>
-      <option value="swift">Swift</option>
-      <option value="ruby">Ruby</option>
-      <option value="go">Go</option>
-      <option value="other">Other</option>
-    </select></label>
-  </div>
-    <pre><textarea  id="programCODE" placeholder="Enter your program code here"></textarea></pre>
-  <button type="submit" onclick="addCode()">Post <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-</form>
-</div>
-<!-- </div> -->
+
 <a href="#" class="up-arrow" style="display:none;" onclick="scrollToTop()">
   <i class="fa fa-chevron-circle-up" aria-hidden="true"></i>
 </a>
@@ -280,7 +293,7 @@ window.onscroll = function() {
 
 
 </script>
-
+ 
 <!-- main body content ends -->
     <!-- footer starts -->
     <footer class="sticky-footer">
