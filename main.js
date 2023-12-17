@@ -14,8 +14,7 @@ expandBtn.forEach((btn) => {
     btn.classList.toggle("open");
   });
 });
-
-
+/*
 // Get the navbar element
 const navbar = document.querySelector('.header');
 const disco = document.querySelector('.disco');
@@ -35,13 +34,13 @@ if (scrollPos > 2) {
 // If it is, add the scrolled class to the navbar with a fade in effect
 navbar.classList.add('scrolled');
 disco.classList.add('scrolled-disco');
-navbar.style.transition = "all 0.2s ease-in-out";
-disco.style.transition = "all 0s ease-in-out";
+navbar.style.transition = "all 5s ease-in-out";
+disco.style.transition = "all 5s ease-in-out";
 } else {
 // If not, remove the scrolled class from the navbar with a fade out effect
 navbar.classList.remove('scrolled');
 disco.classList.remove('scrolled-disco');
-navbar.style.transition = "all 0.5s ease-in-out";
+navbar.style.transition = "all 5s ease-in-out";
 disco.style.transition = "all 1s ease-in-out";
 }
 });
@@ -59,23 +58,23 @@ window.addEventListener('scroll', function() {
   if (currentScroll > lastScroll && currentScroll > header.offsetHeight *1/2) {
     header.style.top = "-80px";
     disco2.style.top = "-80px";
-    header.style.transition = "all 0.5s ease-in-out";
-    disco2.style.transition = "all 0.5s ease-in-out";
+    header.style.transition = "all 5s ease-in-out";
+    disco2.style.transition = "all 5s ease-in-out";
     
   } else {
     header.style.top = "0";
     disco2.style.top = "0";
-    header.style.transition = "all 0.5s ease-in-out";
-    disco2.style.transition = "all 1s ease-in-out";
+    header.style.transition = "all 5s ease-in-out";
+    disco2.style.transition = "all 5s ease-in-out";
 
   }
   lastScroll = currentScroll;
 });
 
-
+*/
 
  // Define an array of sensitive words to hide
- var sensitiveWords = ["shreyash", "bhosale", "prathmesh", "mayur","Ashwin","Kumar","Soham","ayush","shyam","DEEPAK","CHAURASIYA","KAUSHIK","MOURYA","EKLAKH","ANSARI","KEDAR","PRATHAMEESH","PRATHAMESH","RITESH","SHARMA"];
+ var sensitiveWords = ["shreyash", "bhosale", "prathmesh", "mayur","Ashwin","Kumar","Soham","ayush","shyam","DEEPAK","CHAURASIYA","KAUSHIK","MOURYA","shreyass","shreya","ANSARI","KEDAR","pedophile","pedo","kalal","loda","louda","bhostiwala","PRATHAMEESH","PRATHAMESH","RITESH","SHARMA","developer","daksh","lokhande"];
 
  // Define a function to hide sensitive words in a given string
  function hideSensitiveWords(str) {
@@ -91,7 +90,12 @@ window.addEventListener('scroll', function() {
  }
 
 
+ const elements = document.querySelectorAll("p, .contact");
 
+//  // Iterate over the elements and hide sensitive words in their text content
+//  elements.forEach(function(element) {
+//    element.textContent = hideSensitiveWords(element.textContent);
+//  });
 
 
 //  function searchPrograms() {
@@ -406,11 +410,21 @@ function addComment() {
       nameSpan.classList.add("comment-name");
       nameSpan.textContent = hideSensitiveWords(comment.name);
 
-      // Create a new p element to hold the comment text
-      var commentP = document.createElement("p");
-      commentP.classList.add("comment-text");
-      commentP.textContent = hideSensitiveWords(comment.comment);
+     // Create a new p element to hold the comment text
+    var commentP = document.createElement("p");
+    commentP.classList.add("comment-text");
 
+    // Check if the comment contains "https://"
+    if (comment.comment.includes("https://")) {
+      // Create an anchor (a) element
+      var link = document.createElement("a");
+      link.href = comment.comment; // Set the href attribute to the URL
+      link.textContent = comment.comment; // Set the link text to the URL
+      commentP.appendChild(link);
+    } else {
+      // If the comment does not contain "https://", hide sensitive words
+      commentP.textContent = hideSensitiveWords(comment.comment);
+    }
      
       
      
@@ -436,3 +450,16 @@ function addComment() {
   
   
 
+  document.addEventListener('DOMContentLoaded', function() {
+    const content = document.getElementById('content12');
+    window.addEventListener('scroll', function() {
+        let scrollPosition = window.pageYOffset;
+        if (scrollPosition > 100) {
+            content.classList.add('levitate');
+            content.classList.add('hidden');
+        } else {
+            content.classList.remove('levitate');
+            content.classList.remove('hidden');
+        }
+    });
+});
